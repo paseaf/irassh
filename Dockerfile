@@ -16,7 +16,7 @@ RUN mkdir -p /usr/include/mysql/server/ && wget https://raw.githubusercontent.co
 
 COPY src .
 
-RUN useradd -m irassh -u 1500
+RUN useradd -m -u 1500 irassh 
 RUN chown -R irassh:irassh /usr/src/irassh/
 RUN chown -R irassh:irassh /usr/include/mysql/
 

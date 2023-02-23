@@ -27,10 +27,6 @@ services:
       - "0.0.0.0:2222:2222"
     depends_on:
       - mysql
-    volumes:
-      - type: bind
-        source: /var/tmp/irassh_log
-        target: /usr/src/irassh/log
 
 volumes:
   mysql_volume:
