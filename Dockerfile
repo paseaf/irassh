@@ -8,7 +8,7 @@ WORKDIR /usr/src/irassh
 
 ENV PATH="/usr/local/opt/mysql-client/bin/bin:$PATH"
 
-ENV PATH="$PATH:/usr/local/mysql/bin/" 
+ENV PATH="$PATH:/usr/local/mysql/bin/"
 
 RUN mkdir -p /usr/include/mysql/ && wget https://raw.githubusercontent.com/paulfitz/mysql-connector-c/master/include/my_config.h -O /usr/include/mysql/my_config.h
 
@@ -16,7 +16,7 @@ RUN mkdir -p /usr/include/mysql/server/ && wget https://raw.githubusercontent.co
 
 COPY src .
 
-RUN useradd -m irassh
+RUN useradd -m irassh -u 1500
 RUN chown -R irassh:irassh /usr/src/irassh/
 RUN chown -R irassh:irassh /usr/include/mysql/
 
@@ -32,5 +32,3 @@ RUN pip2 install backports.functools_lru_cache==1.2.1
 RUN mkdir -p log && mkdir -p log/tty
 # run irassh as user irassh
 CMD ["bin/irassh", "start"]
-
-
